@@ -33,7 +33,7 @@ s가 타겟에게 전달
 
 ====================================================
 # json 구조
-# 회원가입, 로그인 - 우선순위 낮음 일단 제외
+회원가입, 로그인 - 우선순위 낮음 일단 제외
 type, username, socketid, usernumber
 Socket Register : username, socketid
 Number Register : username, usernumber
