@@ -1,4 +1,4 @@
-package com.jhs.numberbaseball.controller;
+package com.jhs.numberbaseball.test;
 
 import com.jhs.numberbaseball.dto.ConnectionRegist;
 import com.jhs.numberbaseball.dto.NumberGuess;
@@ -13,16 +13,24 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/game")
-public class GameController {
-    @GetMapping("/{number}")
-    public ResponseEntity<Object> guess(@PathVariable int number) {
-        Object result = new Result("test",number,0,1);
-        return ResponseEntity.ok().body(result);
+@RequestMapping("/test")
+public class TestController {
+    @GetMapping("/status/{statuscode}")
+    public ResponseEntity<Object> badRequestTest(@PathVariable String statuscode){
+        switch(statuscode){
+            case "ok":
+                return ResponseEntity.ok("good");
+            case "notfound":
+                return ResponseEntity.notFound().build();
+            case "badrequest":
+                return ResponseEntity.badRequest().body("잘못된 요청입니다.");
+            default:
+                return ResponseEntity.ok(null);
+        }
     }
-    @GetMapping("/guess/{number}")
+
+    @GetMapping("/game/guess/{number}")
     public ResponseEntity<Object> guessTest(@PathVariable int number, @RequestBody NumberGuess numberGuess){
         PlayerVO userVO = UserUtil.findbyName(numberGuess.getTarget());
         System.out.println(userVO);
@@ -30,7 +38,7 @@ public class GameController {
         Object result = new Result(userVO.getUsername(),number, compare.get(0), compare.get(1));
         return ResponseEntity.ok().body(result);
     }
-    @PostMapping("/numberregister")
+    @PostMapping("/game/numberregister")
     public ResponseEntity<Object> numberRegister(@RequestBody NumberRegist numberRegist){
         Object o = numberRegist;
         JSONObject result = new JSONObject(o);
@@ -45,7 +53,7 @@ public class GameController {
         }
     }
 
-    @PostMapping("/connectionregister")
+    @PostMapping("/game/connectionregister")
     public ResponseEntity<Object> connectionRegister(@RequestBody ConnectionRegist connectionRegist){
         Object o = connectionRegist;
         JSONObject result = new JSONObject(o);
