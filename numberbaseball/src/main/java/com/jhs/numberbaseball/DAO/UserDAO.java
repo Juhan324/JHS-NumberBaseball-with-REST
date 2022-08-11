@@ -1,7 +1,7 @@
-package com.jhs.numberbaseball.DAO;
+package com.jhs.numberbaseball.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import com.jhs.numberbaseball.VO.UserVO;
+import com.jhs.numberbaseball.vo.UserVO;
 
 @Mapper
 public interface UserDAO {
