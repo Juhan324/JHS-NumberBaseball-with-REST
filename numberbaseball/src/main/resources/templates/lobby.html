@@ -5,19 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
-        $(function(){
-            function timeoutReload(){  
-                setTimeout('listReload()',1000); 
-            }
-            function listReload(){
-                $("#loginedList").load(location.href + "#loginedList");
-            }
-            timeoutReload();
-        });
-        
-    </script>
+    
 </head>
 <body>
     로비 로그인 성공
@@ -27,4 +15,16 @@
         </ul>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    function timeoutReload(){  
+        setInterval('listReload()',1000); 
+    }
+    function listReload(){
+        $("#loginedList").load(location.href + " #loginedList");
+    }
+    $(function(){
+        timeoutReload();
+    });
+</script>
 </html>
