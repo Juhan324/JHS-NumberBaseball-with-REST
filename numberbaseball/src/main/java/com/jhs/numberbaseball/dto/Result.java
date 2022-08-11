@@ -7,11 +7,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.lang.Nullable;
 
 @Data
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Result {
     private final String type="result";
     @NonNull private String userName;
     @NonNull private int inputNumber;
-    @NonNull private String result;
+    @NonNull private int strike;
+    @NonNull private int ball;
     @Nullable private String target;
 }

@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class SocketRegist {
-    private final String type = "socketregist";
+public class ConnectionRegist {
+    private final String type = "connectionregist";
     private String username;
-    private Object socketId;
+    private Object connection;
 }
