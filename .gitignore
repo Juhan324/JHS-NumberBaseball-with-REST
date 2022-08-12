@@ -1,4 +1,7 @@
-*/numberbaseball/test/*
+.classpath
+.settings
+.project
+*/target/*
 
 # Compiled class file
 *.class
